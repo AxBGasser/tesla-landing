@@ -1,0 +1,117 @@
+<header
+    id='landing-header'
+    class='flex flex-row items-center justify-between w-full h-14 fixed top-0 z-40 text-current'>
+    <!-- Tesla Logo -->
+    <h1 class='flex items-center grow basis-0 h-full pl-5 leading-10'>
+        <a href='' class='px-4 text-current'>
+            <svg class='w-[120px] h-6' viewBox='0 0 342 35' xmlns='http://www.w3.org/2000/svg'>
+                <path
+                    d='M0 .1a9.7 9.7 0 0 0 7 7h11l.5.1v27.6h6.8V7.3L26 7h11a9.8 9.8 0 0 0 7-7H0zm238.6 0h-6.8v34.8H263a9.7 9.7 0 0 0 6-6.8h-30.3V0zm-52.3 6.8c3.6-1 6.6-3.8 7.4-6.9l-38.1.1v20.6h31.1v7.2h-24.4a13.6 13.6 0 0 0-8.7 7h39.9v-21h-31.2v-7h24zm116.2 28h6.7v-14h24.6v14h6.7v-21h-38zM85.3 7h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zm0 13.8h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zm0 14.1h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zM308.5 7h26a9.6 9.6 0 0 0 7-7h-40a9.6 9.6 0 0 0 7 7z'
+                    fill='currentColor'></path>
+            </svg>
+        </a>
+    </h1>
+    <!-- List -->
+    <ol
+        class='base:hidden items-center justify-center w-fit h-full text-current px-2 [&>li>a]:text-[14px] [&>li>a]:font-sans [&>li>a]:font-medium show-list-menu:flex'>
+        <li>
+            <div class='container'>
+                <a href='#' class='min-w-[91px] h-fit rounded-[4px] p-2 leading-5'>
+                    <span class='mx-2 outline-offset-2'> Model S</span>
+                </a>
+            </div>
+        </li>
+        <li>
+            <a
+                href='#'
+                class='min-w-[91px] h-fit rounded-[4px] p-2 leading-5 hover:bg-black/10 hover:backdrop-blur-xl'>
+                <span class='mx-2 outline-offset-2'>Model 3</span>
+            </a>
+        </li>
+        <li>
+            <a
+                href='#'
+                class='min-w-[91px] h-fit rounded-[4px] p-2 leading-5 hover:bg-black/10 hover:backdrop-blur-xl'>
+                <span class='mx-2 outline-offset-2'>Model X</span>
+            </a>
+        </li>
+        <li>
+            <a
+                href='#'
+                class='min-w-[91px] h-fit rounded-[4px] p-2 leading-5 hover:bg-black/10 hover:backdrop-blur-xl'>
+                <span class='mx-2 outline-offset-2'>Model Y</span>
+            </a>
+        </li>
+        <li>
+            <a
+                href='#'
+                class='min-w-[91px] h-fit rounded-[4px] p-2 leading-5 hover:bg-black/10 hover:backdrop-blur-xl'>
+                <span class='mx-2 outline-offset-2'>Solar Roof</span>
+            </a>
+        </li>
+        <li>
+            <a
+                href='#'
+                class='min-w-[91px] h-fit rounded-[4px] p-2 leading-5 hover:bg-black/10 hover:backdrop-blur-xl'>
+                <span class='mx-2 outline-offset-2'>Solar Panels</span>
+            </a>
+        </li>
+        <li>
+            <a
+                href='#'
+                class='min-w-[91px] h-fit rounded-[4px] p-2 leading-5 hover:bg-black/10 hover:backdrop-blur-xl'>
+                <span class='mx-2 outline-offset-2'>Powerwall</span>
+            </a>
+        </li>
+    </ol>
+    <!-- Right Menu -->
+    <ol
+        class='flex items-center justify-end grow basis-0 w-fit static h-full pr-5 text-current [&>li>a]:text-[14px] [&>li>a]:font-sans [&>li>a]:font-medium'>
+        <li class='base:hidden show-list-menu:block'>
+            <a
+                href=''
+                class='min-w-[70px] h-fit rounded-[4px] p-2 leading-5 hover:bg-black/10 hover:backdrop-blur-xl'>
+                <span class='mx-2 outline-offset-2'>Shop</span>
+            </a>
+        </li>
+        <li class='base:hidden show-list-menu:block'>
+            <a
+                href=''
+                class='min-w-[70px] h-fit rounded-[4px] p-2 leading-5 hover:bg-black/10 hover:backdrop-blur-xl'>
+                <span class='mx-2 outline-offset-2'> Account</span>
+            </a>
+        </li>
+        <li>
+            <a
+                href=''
+                class='min-w-[70px] h-fit rounded-[4px] p-2 leading-5 hover:bg-[rgb(0,0,0,0.12)] hover:backdrop-blur-xl base:bg-black/10 base:backdrop-blur-xl show-list-menu:bg-black/0 show-list-menu:backdrop-blur-none'>
+                <span class='mx-2 outline-offset-2'> Menu</span>
+            </a>
+        </li>
+    </ol>
+</header>
+
+<script>
+    const $header = document.querySelector('#landing-header') as HTMLElement
+
+    const ObeserverOptions = {
+        root: null,
+        rootMargun: '0px',
+        threshold: 0.9,
+    }
+
+    const observer = new IntersectionObserver((e) => {
+        e.forEach((e) => {
+            const { isIntersecting } = e
+            if (isIntersecting) {
+                const color = e.target.getAttribute('data-header-color')
+                $header.style.color = color
+            }
+        })
+    }, ObeserverOptions)
+
+    const $sections = document.querySelectorAll('.sections')
+    $sections.forEach((s) => {
+        observer.observe(s)
+    })
+</script>

@@ -1,0 +1,36 @@
+---
+const { sectionClass } = Astro.props
+const { title } = Astro.props
+const { titleClass } = Astro.props
+const { lorem } = Astro.props
+const { loremClass } = Astro.props
+const { href } = Astro.props
+const { anchorText } = Astro.props
+const { anchorClass } = Astro.props
+---
+
+<section
+    class='sections snap-center min-w-screen min-h-screen h-fit flex flex-col items-center font-sans overflow-hidden relative text-white'
+    data-header-color='white'>
+    <h1
+        class='w-full h-fit mt-[70px] text-current text-center text-[40px] font-medium leading-[48px] outline-offset-2 tracking-[-0.6px] px-6 z-10'
+        >Experience Tesla</h1
+    >
+    <p
+        class='max-w-[744px] h-fit text-current text-center text-[14px] font-medium px-6 pt-[6px] pb-[14px] z-10'
+        >Schedule a Demo Drive Today</p
+    >
+    <div
+        class='w-full h-auto relative flex flex-col grow items-center justify-end shrink-0 basis-[auto] px-6 pb-[80px] ps-px-2 pe-px-2 z-10'>
+        <a
+            href=''
+            class='max-w-[264px] w-full min-h-[42px] hover:bg-white hover:text-black text-current flex items-center justify-center border-white border-top-left-radius-[4px] rounded-t-[4px] rounded-b-[4px] border-x-[3px] border-y-[3px]'>
+            <span class='cursor-pointer text-[14px] font-normal text-center leading-4'> Demo Drive</span>
+        </a>
+    </div>
+    <video
+        class='object-cover absolute top-0 w-screen h-screen overflow-hidden'
+        autoplay
+        loop
+        src='/video/Homepage-Video.webm'></video>
+</section>

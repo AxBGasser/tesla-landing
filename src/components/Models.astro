@@ -1,0 +1,87 @@
+---
+export interface Props {
+	modelTitle: string;
+	description?: string;
+	href?: string;
+	linkText?: string;
+	shopNow?: string;
+	orderNow?: string;
+	demoDrive?: string;
+	bgModel?: string;
+	learnMore?: string;
+}
+
+const {modelTitle} = Astro.props
+const {description} = Astro.props
+const {href} = Astro.props
+const {linkText} = Astro.props
+const {shopNow} = Astro.props
+const {orderNow} = Astro.props
+const {demoDrive} = Astro.props
+const {bgModel} = Astro.props
+const {learnMore} = Astro.props
+
+
+---
+
+<section
+    class=`sections snap-center min-w-screen min-h-screen h-fit flex flex-col items-center font-sans overflow-hidden relative ${bgModel} bg-cover bg-center `
+    data-header-color="black"
+    >
+    <h1
+        class='w-full h-fit mt-[70px] text-center text-[40px] font-medium leading-[48px] outline-offset-2 tracking-[-0.6px] px-6 z-10 text-current' >
+        {modelTitle}
+    </h1>
+    {
+        href !== undefined ? (
+            <a
+                href={href}
+                class='max-w-[744px] h-fit text-center text-[14px] font-normal px-6 pt-[6px]  z-10 underline'>
+                {linkText}
+            </a>
+        ): <></>
+    }
+    {
+        description !== undefined ? (
+            <p class='max-w-[744px] h-fit text-center text-[14px] font-normal px-6 pb-[14px] z-10'>
+                {description.toString()}
+            </p>
+        ): null
+    }
+    <div
+        class='w-full h-auto relative flex flex-row grow gap-[23px] items-end justify-center shrink-0 basis-[auto] px-6 pb-[80px] ps-px-2 pe-px-2 z-10'>
+        {
+            shopNow !== undefined ? (
+            <a href={shopNow}
+                class='max-w-[264px] w-full min-h-[42px] bg-[#171a20cc] text-white flex items-center justify-center border-transparent border-top-left-radius-[4px] rounded-t-[4px] rounded-b-[4px] border-x-[3px] border-y-[3px]'>
+                <span class='cursor-pointer text-[14px] font-medium text-center leading-4'> Shop Now</span>
+            </a>
+            ): null
+        }
+        {
+            orderNow !== undefined ? (
+            <a href={orderNow}
+                class='max-w-[264px] w-full min-h-[42px] bg-[#171a20cc] text-white flex items-center justify-center border-transparent border-top-left-radius-[4px] rounded-t-[4px] rounded-b-[4px] border-x-[3px] border-y-[3px]'>
+                <span class='cursor-pointer text-[14px] font-medium text-center leading-4'> Order Now</span>
+            </a>
+            ): null
+        }
+        {
+            learnMore !== undefined ? (
+            <a href={learnMore}
+                class='max-w-[264px] w-full min-h-[42px] bg-[#f4f4f4] text-current flex items-center justify-center border-transparent border-top-left-radius-[4px] rounded-t-[4px] rounded-b-[4px] border-x-[3px] border-y-[3px]'>
+                <span class='cursor-pointer text-[14px] font-medium text-center leading-4'> Learn More</span>
+            </a>
+            ): null
+        }
+        {
+            demoDrive !== undefined ? (
+            <a
+                href={demoDrive}
+                class='max-w-[264px] w-full min-h-[42px] bg-[#f4f4f4] text-current flex items-center justify-center border-transparent border-top-left-radius-[4px] rounded-t-[4px] rounded-b-[4px] border-x-[3px] border-y-[3px]'>
+                <span class='cursor-pointer text-[14px] font-medium text-center leading-4'> Demo Drive</span>
+            </a>
+            ): null
+        }
+    </div>
+</section>
